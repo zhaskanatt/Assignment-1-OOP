@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+class Car {
+    private String model;
+    private String name;
+    private double price;
+    private String owner;
+
+    public void setCarData(String model, String name, double price, String owner) {
+        this.model = model;
+        this.name = name;
+        this.price = price;
+        this.owner = owner;
+    }
+
+    public void displayCarData() {
+        System.out.println("Car Model: " + model);
+        System.out.println("Car Name: " + name);
+        System.out.println("Car Price: " + price);
+        System.out.println("Car Owner: " + owner);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Car car1 = new Car();
+        Car car2 = new Car();
+        Car car3 = new Car();
+
+        System.out.println("Enter details for car 1:");
+        car1.setCarData(scanner.next(), scanner.next(), scanner.nextDouble(), scanner.next());
+        System.out.println("Enter details for car 2:");
+        car2.setCarData(scanner.next(), scanner.next(), scanner.nextDouble(), scanner.next());
+        System.out.println("Enter details for car 3:");
+        car3.setCarData(scanner.next(), scanner.next(), scanner.nextDouble(), scanner.next());
+
+        System.out.println("\nDetails of Car 1:");
+        car1.displayCarData();
+        System.out.println("\nDetails of Car 2:");
+        car2.displayCarData();
+        System.out.println("\nDetails of Car 3:");
+        car3.displayCarData();
+
+        scanner.close();
+    }
+}
