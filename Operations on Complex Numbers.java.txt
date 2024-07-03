@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+class Complex {
+    double real, imaginary;
+
+    Complex(double r, double i) {
+        real = r;
+        imaginary = i;
+    }
+
+    public Complex add(Complex other) {
+        return new Complex(this.real + other.real, this.imaginary + other.imaginary);
+    }
+
+    public Complex subtract(Complex other) {
+        return new Complex(this.real - other.real, this.imaginary - other.imaginary);
+    }
+
+    public Complex multiply(Complex other) {
+        return new Complex(this.real * other.real - this.imaginary * other.imaginary,
+                this.real * other.imaginary + this.imaginary * other.real);
+    }
+
+    @Override
+    public String toString() {
+        return real + " + " + imaginary + "i";
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the real and imaginary parts of the first complex number:");
+        double real1 = scanner.nextDouble();
+        double imaginary1 = scanner.nextDouble();
+        Complex c1 = new Complex(real1, imaginary1);
+
+        System.out.println("Enter the real and imaginary parts of the second complex number:");
+        double real2 = scanner.nextDouble();
+        double imaginary2 = scanner.nextDouble();
+        Complex c2 = new Complex(real2, imaginary2);
+
+        Complex sum = c1.add(c2);
+        Complex difference = c1.subtract(c2);
+        Complex product = c1.multiply(c2);
+
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
+        System.out.println("Product: " + product);
+        scanner.close();
+    }
+}
