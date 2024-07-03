@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+class Employee {
+    private double salary;
+    private int hoursPerDay;
+
+    public void getInfo(double salary, int hoursPerDay) {
+        this.salary = salary;
+        this.hoursPerDay = hoursPerDay;
+    }
+
+    public void addSal() {
+        if (salary < 500) {
+            salary += 10;
+        }
+    }
+
+    public void addWork() {
+        if (hoursPerDay > 6) {
+            salary += 5;
+        }
+    }
+
+    public double getFinalSalary() {
+        return salary;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Employee emp = new Employee();
+
+        System.out.println("Enter the salary of the employee:");
+        double salary = scanner.nextDouble();
+        System.out.println("Enter the number of hours worked per day:");
+        int hours = scanner.nextInt();
+
+        emp.getInfo(salary, hours);
+        emp.addSal();
+        emp.addWork();
+        System.out.println("The final salary is: " + emp.getFinalSalary());
+        scanner.close();
+    }
+}
